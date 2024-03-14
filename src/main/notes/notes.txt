@@ -1,0 +1,28 @@
+
+What are swerve modules?
+    Each swerve module has two motors in our case Krakens so TalonFX
+    One controls how fast the wheel spins. While the other controls 
+    the angle of the wheel.We can drive forward, sideways or rotate in 
+    place or moving around while spinning. On GamePad one stick controls 
+    moving around, while the other controls spinning. Inputs in joystick X, 
+    Y and turning direction.
+
+Swerve Module State - The speed and direction a module should be in
+
+How to Decide Motor Output? 
+    How are motor outputs decided, if our robot has physical max speed of 5 meters per second then we divide the incoming speed value by 5
+
+How to Get Angle? 
+    For the angle, we use a PID controller to drive the motor to the requested set point
+
+Why Absolute Analog?
+    When ever the robot turns off the motors and encoders lose their previous readings, but 
+    the Absolute Analog encoders permantly knows the robots location, to help figure out 
+    where the wheels are facing
+
+    They are connected to the analog imports on the robo rio
+
+    private final boolean abosoluteEncoderReversed;
+    private final double abosoluteEncoderOffsetRad;
+
+    are both used to read how much wheels are  off by to compensate in the code later
